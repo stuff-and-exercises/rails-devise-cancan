@@ -1,6 +1,2 @@
 <h1>Home</h1>
-<% if current_user.has_role? :admin %>
-  <p>You have the administrator role!</p>
-<% else %>
-  <p>You have no special permisions.</p>
-<% end %>
+<%= render 'microposts/form' %>
