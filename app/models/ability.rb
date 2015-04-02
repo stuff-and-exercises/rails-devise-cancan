@@ -32,9 +32,9 @@ class Ability
     # there is no resource yet to allow access to
     user ||= User.new
     if user.has_role? :admin
-        can :manage, :all
+        can :manage, User
     else
-        can :read, :all
+        can :read, User
     end
 
   end

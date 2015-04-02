@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  resourcify
   rolify
 
   has_many :microposts
