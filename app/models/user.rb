@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   resourcify
   rolify
 
-  has_many :microposts
+  has_many :microposts, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
