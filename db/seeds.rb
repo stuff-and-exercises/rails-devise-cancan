@@ -6,21 +6,28 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Users
-User.create!(email: "admin1@test.com",
-             password: "password",
-             password_confirmation: "password")
+# Groups
+Group.create!(name: "Test group 1")
 
-User.create!(email: "admin2@test.com",
-             password: "password",
-             password_confirmation: "password")
+Group.create!(name: "Test group 2")
 
-20.times do |n|
-  email = "user#{n+1}@test.com"
-  password = "password"
-  User.create!(email: email,
-               password: password,
-               password_confirmation: password)
+# Admin ussers
+Group.first.users.create!(email: "admin1@test.com",
+                          password: "password",
+                          password_confirmation: "password")
+
+Group.second.users.create!(email: "admin2@test.com",
+                           password: "password",
+                           password_confirmation: "password")
+
+Group.all.each do |group|
+  10.times do |n|
+    email = "user#{group.id}#{n+1}@test.com"
+    password = "password"
+    group.users.create!(email: email,
+                        password: password,
+                        password_confirmation: password)
+  end
 end
 
 # Microposts

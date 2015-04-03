@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331033953) do
+ActiveRecord::Schema.define(version: 20150403161823) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -44,9 +50,11 @@ ActiveRecord::Schema.define(version: 20150331033953) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "group_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["group_id"], name: "index_users_on_group_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "users_roles", id: false, force: :cascade do |t|
