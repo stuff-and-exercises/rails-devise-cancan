@@ -1,6 +1,7 @@
 <p class="navbar-text pull-right"></p>
 <% if user_signed_in? %>
   <%= link_to "Home", root_path %> | 
+  <%= link_to "Groups", groups_path %> |
   <%= link_to "Users", users_path %> | 
   Logged in as <strong><%= current_user.email %></strong>.
   <%= link_to "My profile", current_user, class: "navbar-link" %> |

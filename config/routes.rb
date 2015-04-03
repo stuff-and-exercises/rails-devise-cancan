@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'groups/index'
+
   root 'static_pages#home'
 
   devise_for :users
   resources :users
   resources :microposts
+  resources :groups, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
