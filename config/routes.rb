@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :microposts
-  resources :groups, only: [:index]
+  resources :groups, only: [:index, :show, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

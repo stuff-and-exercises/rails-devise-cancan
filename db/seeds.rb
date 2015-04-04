@@ -11,15 +11,21 @@ Group.create!(name: "Test group 1")
 
 Group.create!(name: "Test group 2")
 
-# Admin ussers
+# Admin user
+User.create!(email: "admin@test.com",
+             password: "password",
+             password_confirmation: "password").add_role(:admin)
+
+# Group admin users
 Group.first.users.create!(email: "admin1@test.com",
                           password: "password",
-                          password_confirmation: "password")
+                          password_confirmation: "password").add_role(:group_admin)
 
 Group.second.users.create!(email: "admin2@test.com",
                            password: "password",
-                           password_confirmation: "password")
+                           password_confirmation: "password").add_role(:group_admin)
 
+# Users
 Group.all.each do |group|
   10.times do |n|
     email = "user#{group.id}#{n+1}@test.com"

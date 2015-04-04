@@ -13,8 +13,10 @@
     <% @groups.each do |group| %>
       <tr>
         <td><%= group.name %> (<%= group.users.count %> users)</td>
-        <td><%= link_to 'Show', '#' %></td>
-        <% if current_user.has_role? :admin %>
+        <% if can? :read, group %>
+          <td><%= link_to 'Show', group %></td>
+        <% end %>
+        <% if can? :manage, group %>
           <td><%= link_to 'Edit', '#' %></td>
           <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
