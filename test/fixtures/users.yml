@@ -1,1 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+carlos:
+  email: "carlos@test.com"
+  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
+  roles: admin
+
+michael:
+  email: "michael@test.com"
+  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
+  roles: group_admin
+  group: english
+
+miguel:
+  email: "miguel@test.com"
+  encrypted_password:  <%= Devise.bcrypt(User, 'password') %>
+  roles: group_admin
+  group: spanish
+
+peter:
+  email: "peter@test.com"
+  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
+  group: english
+
+pedro:
+  email: "pedro@test.com"
+  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
+  group: spanish
