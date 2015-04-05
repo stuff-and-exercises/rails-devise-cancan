@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :set_micropost, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /microposts
   # GET /microposts.json

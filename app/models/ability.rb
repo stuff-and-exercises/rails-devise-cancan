@@ -33,12 +33,15 @@ class Ability
     if user.has_role? :admin
         can :manage, User
         can :manage, Group
+        can :manage, Micropost
     elsif user.has_role? :group_admin
         can :manage, User, group_id: user.group_id
         can :read, Group, id: user.group_id
+        can :manage, Micropost, user: { group_id: user.group_id }
     else
         can :read, User, group_id: user.group_id
         can :read, Group, id: user.group_id
+        can :manage, Micropost, user: user
     end
 
   end
